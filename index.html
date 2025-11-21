@@ -1,14 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chavi - Tienda Virtual y Pagos</title>
-    <meta name="description" content="Plataforma moderna para compras online y pago de recibos de agua" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <meta name="description" content="Plataforma moderna para compras online y pago de recibos de agua">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <h1>Chavi</h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="nav-links desktop-nav">
+                    <button class="nav-btn active" data-page="home">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span>Inicio</span>
+                    </button>
+                    <button class="nav-btn" data-page="shop">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        <span>Tienda</span>
+                    </button>
+                    <button class="nav-btn" data-page="bills">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        <span>Recibos de Agua</span>
+                    </button>
+                </div>
+
+                <!-- Cart & Mobile Menu -->
+                <div class="nav-actions">
+                    <button class="cart-btn" id="cartBtn">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobileNav">
+                <button class="nav-btn mobile-nav-btn active" data-page="home">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span>Inicio</span>
+                </button>
+                <button class="nav-btn mobile-nav-btn" data-page="shop">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span>Tienda</span>
+                </button>
+                <button class="nav-btn mobile-nav-btn" data-page="bills">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    <span>Recibos de Agua</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <div class="cart-title">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <h2>Carrito</h2>
+            </div>
+            <button class="close-cart-btn" id="closeCartBtn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer" id="cartFooter"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent"></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Chavi. Todos los derechos reservados.</p>
+            <p class="footer-subtitle">Plataforma moderna para compras y pagos de servicios</p>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>

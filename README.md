@@ -1,13 +1,15 @@
 # Chavi - Plataforma Moderna de Tienda Virtual y Pagos
 
-Una plataforma web moderna y responsive que combina una tienda virtual con un sistema de pago de recibos de agua.
+Una plataforma web moderna y responsive que combina una tienda virtual con un sistema de pago de recibos de agua. Desarrollada con **HTML, CSS y JavaScript vanilla** sin dependencias externas.
 
 ## Características
 
 ### Tienda Virtual
 - Catálogo de productos tecnológicos
-- Sistema de búsqueda y filtrado por categorías
+- Sistema de búsqueda en tiempo real
+- Filtrado por categorías
 - Carrito de compras interactivo
+- Gestión de stock y cantidades
 - Diseño moderno con efectos glassmorphism
 - Animaciones suaves y responsivas
 
@@ -16,77 +18,65 @@ Una plataforma web moderna y responsive que combina una tienda virtual con un si
 - Visualización detallada del consumo y monto
 - Formulario de pago seguro
 - Confirmación de pago exitoso
+- Simulación de proceso de pago
 
 ### Diseño
 - Diseño completamente responsive (móvil, tablet, desktop)
 - Gradientes modernos y efectos visuales
-- Navegación intuitiva
+- Navegación intuitiva con menú hamburguesa en móvil
 - Animaciones y transiciones suaves
 - Tema oscuro moderno
+- Efectos glassmorphism y backdrop-filter
+- Scrollbar personalizado
 
 ## Tecnologías Utilizadas
 
-- **React 18** - Librería de UI
-- **TypeScript** - Tipado estático
-- **Vite** - Build tool ultrarrápido
-- **Tailwind CSS** - Framework de CSS utility-first
-- **Lucide React** - Iconos modernos
+- **HTML5** - Estructura semántica
+- **CSS3** - Estilos modernos con variables CSS, flexbox y grid
+- **JavaScript (ES6+)** - Lógica de la aplicación sin frameworks
+- **SVG** - Iconos vectoriales
 
 ## Instalación
 
-1. Clonar el repositorio:
+**¡Sin instalación necesaria!** Solo necesitas un navegador web.
+
+### Opción 1: Abrir directamente
+1. Descarga o clona el repositorio:
 ```bash
 git clone <repository-url>
 cd chavi
 ```
 
-2. Instalar dependencias:
+2. Abre `index.html` en tu navegador favorito
+
+### Opción 2: Servidor local (recomendado)
+Para evitar problemas con CORS al cargar imágenes:
+
 ```bash
-npm install
+# Python 3
+python -m http.server 8000
+
+# Python 2
+python -m SimpleHTTPServer 8000
+
+# Node.js (si tienes http-server instalado)
+npx http-server -p 8000
+
+# PHP
+php -S localhost:8000
 ```
 
-3. Iniciar servidor de desarrollo:
-```bash
-npm run dev
-```
-
-4. Abrir en el navegador:
-```
-http://localhost:3000
-```
-
-## Scripts Disponibles
-
-- `npm run dev` - Inicia el servidor de desarrollo
-- `npm run build` - Construye la aplicación para producción
-- `npm run preview` - Previsualiza la build de producción
-- `npm run lint` - Ejecuta el linter
+Luego visita: `http://localhost:8000`
 
 ## Estructura del Proyecto
 
 ```
 chavi/
-├── src/
-│   ├── components/        # Componentes reutilizables
-│   │   ├── Navbar.tsx    # Barra de navegación
-│   │   ├── ProductCard.tsx # Tarjeta de producto
-│   │   └── Cart.tsx      # Carrito de compras
-│   ├── pages/            # Páginas principales
-│   │   ├── Home.tsx      # Página de inicio
-│   │   ├── Shop.tsx      # Tienda virtual
-│   │   └── WaterBills.tsx # Pago de recibos
-│   ├── data/             # Datos mock
-│   │   └── products.ts   # Catálogo de productos
-│   ├── types/            # Definiciones TypeScript
-│   │   └── index.ts      # Tipos e interfaces
-│   ├── App.tsx           # Componente principal
-│   ├── main.tsx          # Punto de entrada
-│   └── index.css         # Estilos globales
-├── index.html
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── tailwind.config.js
+├── index.html          # Página principal HTML
+├── styles.css          # Todos los estilos CSS
+├── app.js              # Lógica de la aplicación
+├── products.js         # Datos de productos y recibos
+└── README.md           # Este archivo
 ```
 
 ## Uso de la Plataforma
@@ -118,13 +108,32 @@ La plataforma está optimizada para todos los dispositivos:
 ## Personalización
 
 ### Colores
-Los colores principales se pueden modificar en `tailwind.config.js`:
-- Primary: Azul (#0ea5e9)
-- Secondary: Púrpura/Violeta
-- Accent: Cyan
+Los colores principales se pueden modificar en las variables CSS al inicio de `styles.css`:
+```css
+:root {
+    --primary-500: #0ea5e9;    /* Azul principal */
+    --purple-500: #8b5cf6;     /* Púrpura */
+    --cyan-500: #06b6d4;       /* Cyan */
+    /* ... más colores */
+}
+```
 
 ### Productos
-Agrega o modifica productos en `src/data/products.ts`
+Agrega o modifica productos en el array `products` en `products.js`:
+```javascript
+{
+    id: 10,
+    name: 'Nuevo Producto',
+    description: 'Descripción del producto',
+    price: 99.99,
+    image: 'url-de-la-imagen',
+    category: 'Categoría',
+    stock: 20
+}
+```
+
+### Recibos de Agua
+Agrega cuentas de prueba en el objeto `mockBills` en `products.js`
 
 ## Contribuir
 
@@ -143,6 +152,32 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 Para preguntas o sugerencias, por favor abre un issue en el repositorio.
 
+## Compatibilidad
+
+- ✅ Chrome 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Edge 90+
+- ✅ Opera 76+
+
+## Características Técnicas
+
+- **SPA (Single Page Application)**: Navegación sin recargas
+- **Estado reactivo**: Actualización automática del DOM
+- **Carrito persistente**: Gestión completa del carrito de compras
+- **Búsqueda en tiempo real**: Filtrado instantáneo de productos
+- **Animaciones CSS**: Transiciones suaves sin JavaScript pesado
+- **Responsive Design**: Mobile-first approach
+
+## Mejoras Futuras
+
+- [ ] Persistencia del carrito en localStorage
+- [ ] Integración con API real de pagos
+- [ ] Sistema de usuarios y autenticación
+- [ ] Historial de compras
+- [ ] Más métodos de pago
+- [ ] Sistema de notificaciones
+
 ---
 
-Desarrollado con ❤️ usando React + Vite + TypeScript + Tailwind CSS
+Desarrollado con ❤️ usando HTML, CSS y JavaScript vanilla
