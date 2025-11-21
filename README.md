@@ -22,12 +22,13 @@ Una plataforma web moderna y responsive que combina una tienda virtual con un si
 
 ### Diseño
 - Diseño completamente responsive (móvil, tablet, desktop)
+- **Tema agrícola** con colores verde y amarillo
 - Gradientes modernos y efectos visuales
 - Navegación intuitiva con menú hamburguesa en móvil
 - Animaciones y transiciones suaves
-- Tema oscuro moderno
+- Tema oscuro con fondo verde oscuro
 - Efectos glassmorphism y backdrop-filter
-- Scrollbar personalizado
+- Scrollbar personalizado con gradiente verde-amarillo
 
 ## Tecnologías Utilizadas
 
@@ -108,13 +109,26 @@ La plataforma está optimizada para todos los dispositivos:
 ## Personalización
 
 ### Colores
-Los colores principales se pueden modificar en las variables CSS al inicio de `styles.css`:
+La plataforma usa una paleta de **colores agrícolas** (verde y amarillo). Los colores principales se pueden modificar en las variables CSS al inicio de `styles.css`:
 ```css
 :root {
-    --primary-500: #0ea5e9;    /* Azul principal */
-    --purple-500: #8b5cf6;     /* Púrpura */
-    --cyan-500: #06b6d4;       /* Cyan */
-    /* ... más colores */
+    /* Verde Principal */
+    --primary-500: #22c55e;    /* Verde principal */
+    --primary-600: #16a34a;    /* Verde más oscuro */
+
+    /* Amarillo/Dorado */
+    --yellow-500: #eab308;     /* Amarillo dorado */
+    --yellow-600: #ca8a04;     /* Amarillo más oscuro */
+
+    /* Verde Lima */
+    --lime-500: #84cc16;       /* Verde lima */
+
+    /* Naranja */
+    --orange-500: #f97316;     /* Naranja */
+
+    /* Fondos Verde Oscuro */
+    --bg-dark: #0a1f0a;        /* Fondo oscuro verde */
+    --bg-dark-light: #1a3a1a;  /* Fondo claro verde */
 }
 ```
 
