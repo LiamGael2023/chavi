@@ -134,12 +134,12 @@ function renderHomePage() {
                 <h2 class="section-title">¿Por qué elegir Chavi?</h2>
 
                 <div class="features-grid">
-                    ${renderFeatureCard('store', 'Tienda Virtual', 'Amplio catálogo de productos tecnológicos de última generación con los mejores precios del mercado.', 'linear-gradient(to right, #3b82f6, #8b5cf6)')}
-                    ${renderFeatureCard('droplet', 'Pago de Recibos', 'Paga tus recibos de agua de forma rápida y segura desde la comodidad de tu hogar.', 'linear-gradient(to right, #8b5cf6, #ec4899)')}
-                    ${renderFeatureCard('shield', '100% Seguro', 'Todas tus transacciones están protegidas con tecnología de encriptación de última generación.', 'linear-gradient(to right, #ec4899, #ef4444)')}
-                    ${renderFeatureCard('zap', 'Procesamiento Rápido', 'Procesos optimizados para que completes tus compras y pagos en segundos.', 'linear-gradient(to right, #10b981, #059669)')}
+                    ${renderFeatureCard('store', 'Tienda Virtual', 'Amplio catálogo de productos tecnológicos de última generación con los mejores precios del mercado.', 'linear-gradient(to right, #22c55e, #eab308)')}
+                    ${renderFeatureCard('droplet', 'Pago de Recibos', 'Paga tus recibos de agua de forma rápida y segura desde la comodidad de tu hogar.', 'linear-gradient(to right, #22c55e, #84cc16)')}
+                    ${renderFeatureCard('shield', '100% Seguro', 'Todas tus transacciones están protegidas con tecnología de encriptación de última generación.', 'linear-gradient(to right, #16a34a, #15803d)')}
+                    ${renderFeatureCard('zap', 'Procesamiento Rápido', 'Procesos optimizados para que completes tus compras y pagos en segundos.', 'linear-gradient(to right, #84cc16, #65a30d)')}
                     ${renderFeatureCard('credit-card', 'Múltiples Métodos de Pago', 'Acepta tarjetas de crédito, débito y transferencias bancarias.', 'linear-gradient(to right, #eab308, #f97316)')}
-                    ${renderFeatureCard('trending-up', 'Ofertas Exclusivas', 'Accede a promociones y descuentos especiales para nuestros usuarios.', 'linear-gradient(to right, #06b6d4, #3b82f6)')}
+                    ${renderFeatureCard('trending-up', 'Ofertas Exclusivas', 'Accede a promociones y descuentos especiales para nuestros usuarios.', 'linear-gradient(to right, #a3e635, #22c55e)')}
                 </div>
             </div>
         </div>
